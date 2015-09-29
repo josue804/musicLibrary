@@ -1,0 +1,18 @@
+{{yield}}
+
+{{#if newArtistForm}}
+  <form>
+    <div class="form-group">
+      <label for="name">Artist Name</label>
+      {{input id="name" value=name class="form-control"}}
+    </div>
+    <div class="form-group">
+      <label for="genre">Artist Genre</label>
+      {{input id="genre" value=genre class="form-control"}}
+    </div>
+  </form>
+  <button class="btn btn-primary" {{action 'saveArtist'}}>Save Artist</button>
+  <button class="btn btn-warning" {{action 'artistFormHide'}}>Nevermind!</button>
+{{else}}
+  <button class="btn btn-primary" {{action 'artistFormShow'}}>Add New Artist</button>
+{{/if}}

@@ -1,0 +1,19 @@
+{{yield}}
+
+
+{{#if newSongForm}}
+  <form>
+    <div class="form-group">
+      <label for="name">Song Name</label>
+      {{input id="name" value=name class="form-control"}}
+    </div>
+    <div class="form-group">
+      <label for="artist">Artist</label>
+      {{input id="artist" value=artist class="form-control"}}
+    </div>
+  </form>
+  <button class="btn btn-primary" {{action 'saveSong'}}>Save Song</button>
+  <button class="btn btn-warning" {{action 'songFormHide'}}>Nevermind!</button>
+{{else}}
+  <button class="btn btn-primary" {{action 'songFormShow'}}>Add New Song</button>
+{{/if}}
