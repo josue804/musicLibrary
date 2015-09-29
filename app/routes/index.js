@@ -15,9 +15,12 @@ export default Ember.Route.extend({
     },
 
     saveSong(params) {
-      debugger;
       var newSong = this.store.createRecord('song', params);
-      newSong.save();
+      var artist = params.artist;
+      artist.get('songs').addObject(newSong);
+      newSong.save().then(function() {
+        return artist.save();
+      });
     }
   }
 });

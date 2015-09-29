@@ -4,10 +4,21 @@ export default Ember.Component.extend({
   newSongForm: false,
 
   model() {
-    return this.store.findAll('song');
+    return Ember.RSVP.hash({
+      artists: this.store.findAll('artist'),
+      songs: this.store.findAll('song')
+    });
   },
 
   actions: {
+    makeSelection(selection, component) {
+      if(selection) {
+        this.set('artist', selection);
+      } else {
+        this.set('selection', component.get('default'));
+      }
+    },
+
     songFormShow() {
       this.set('newSongForm', true);
     },
@@ -17,8 +28,10 @@ export default Ember.Component.extend({
     saveSong() {
       var params = {
         name: this.get('name'),
-        artist: this.get('artist')
+        artist: this.get('artist'),
+        file: this.get('file')
       }
+      debugger;
       this.sendAction('saveSong', params);
       this.set('newSongForm', false);
     }

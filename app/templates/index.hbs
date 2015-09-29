@@ -1,4 +1,35 @@
 {{outlet}}
+<div class="jumbotron">
+  <div class="container">
+    <div class="new-artist">
+      <br>
+      {{new-artist saveArtist="saveArtist"}}
+      <br>
+    </div>
+  </div>
 
-{{new-artist saveArtist="saveArtist"}}
-{{new-song saveSong="saveSong"}}
+  <div class="container">
+    <div class="new-song">
+      <br>
+      {{new-song model=model saveSong="saveSong"}}
+      <br>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      {{#each model.artists as |artist|}}
+        <div class="col-md-3">
+          <h3>{{artist.name}}</h3>
+          <h5><em>{{artist.genre}}</em></h5>
+          {{#each artist.songs as |song|}}
+            <p>{{song.name}}</p>
+            <audio controls><source src="{{song.file}}"></audio>
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

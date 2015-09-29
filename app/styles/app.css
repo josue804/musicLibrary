@@ -22,3 +22,25 @@
 .glyphicon-chevron-left {
   color: #000;
 }
+
+.col-md-3 {
+  background-color: lightblue;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.new-artist {
+  border-bottom: 1px solid #000;
+  margin: 0px;
+  text-align: center;
+}
+
+.new-song {
+  border-top: 1px solid #000;
+  margin: 0px;
+  text-align: center;
+}
+
+audio {
+  width: 100%;
+}
